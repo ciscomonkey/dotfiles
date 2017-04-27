@@ -1,0 +1,23 @@
+- defaults:
+    link:
+      relink: true
+
+
+- clean: ['~']
+
+
+- link:
+    ~/.dotfiles: ''
+    ~/.vim: vim
+    ~/.vimrc: vimrc
+    ~/.dotfile_util: util
+    ~/.bash_profile: bash_profile
+    ~/.bash_prompt: bash_prompt
+    ~/.git_prompt.sh: git_prompt.sh
+    ~/.git-completion.bash: git-completion.bash
+    ~/.dictionary.txt.gz: dictionary.txt.gz
+    ~/.common_shell_functions: common_shell_functions
+
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

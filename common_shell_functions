@@ -1,0 +1,125 @@
+###################################################################
+# This file is for shell functions common between shells: zsh, bash
+###################################################################
+
+function pubkey() {
+    if [ -f ~/.ssh/id_rsa.pub ]; then
+        if which pbcopy &> /dev/null; then
+            cat ~/.ssh/id_rsa.pub | pbcopy
+            echo "Copied public key using pbcopy"
+        else
+            echo "pbcopy not available - printing public key"
+            echo
+            cat ~/.ssh/id_rsa.pub
+        fi
+    fi
+}
+
+function pwgen() {
+    if [ -f ~/.dotfile_util/pwgen.py ]; then
+        if which python &> /dev/null; then
+            ~/.dotfile_util/pwgen.py 4
+        else
+            echo "Need python for pwgen"
+        fi
+    else
+        echo "Could not find ~/.dotfile_util/pwgen.py"
+    fi
+}
+
+function encrypt() {
+    if which gpg &> /dev/null; then
+        gpg --output $1.gpg --symmetric $1
+        if [ $? -eq 0 ]; then
+            echo "Encrypted file: $1.gpg"
+        else
+            echo "Something went wrong during encryption."
+        fi
+    else
+        echo "Need gpg to encrypt"
+    fi
+}
+
+function decrypt() {
+    if which gpg &> /dev/null; then
+        gpg --output $1.decrypted --decrypt $1
+        if [ $? -eq 0 ]; then
+            echo "Decrypted file: $1.decrypted"
+        else
+            echo "Something went wrong during decryption."
+        fi
+    else
+        echo "Need gpg to decrypt"
+    fi
+}
+
+#################### Project Initialization Tools ###################
+function download_bootstrap() {
+    mkdir -p static
+    mkdir -p static/css
+    mkdir -p static/js
+
+    cd static/css
+    wget "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    cd ../
+    cd js
+    wget "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    cd ../..
+}
+
+function init_flask() {
+    mkdir -p templates
+    touch templates/index.html
+    curl "https://raw.githubusercontent.com/lewagon/bootstrap-boilerplate/gh-pages/index.html" > templates/index.html
+    FLASK_TEMPLATE="from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.debug = True
+    app.run()
+"
+    echo "$FLASK_TEMPLATE" > app.py
+}
+
+function weather() {
+    if [ -z "$1" ]; then
+        LOCATION=Greenfield,+WI?p0
+    else
+        LOCATION="$1"?p0
+    fi
+
+    curl --silent wttr.in/$LOCATION
+}
+
+function forecast() {
+    if [ -z "$1" ]; then
+        LOCATION=Greenfield,+WI?p
+    else
+        LOCATION="$1"?p
+    fi
+
+    curl --silent wttr.in/~$LOCATION | head -40
+}
+
+function fupdatedb() {
+    if [ -f /tmp/flocate.db ]; then
+        rm /tmp/flocate.db
+    fi
+
+    find / 2>/dev/null | gzip > /tmp/flocate.db
+}
+
+function flocate() {
+
+    if [ ! -f /tmp/flocate.db ]; then
+        echo "flocate.db does not exist: run fupdatedb"
+        return -1
+    fi
+
+    zgrep $1 /tmp/flocate.db --color=auto
+}
