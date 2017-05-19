@@ -50,6 +50,9 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
+"Fix mouse in iterm2
+set mouse=a
+
 "File specific tab settings
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
