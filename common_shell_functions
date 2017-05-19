@@ -26,6 +26,19 @@ function fixeuler() {
     fi
 }
 
+function pipubkey() {
+    if [ -f ~/.ssh/rpi.pub ]; then
+        if which pbcopy &> /dev/null; then
+            cat ~/.ssh/rpi.pub | pbcopy
+            echo "Copied public key using pbcopy"
+        else
+            echo "pbcopy not available - printing pi public key"
+            echo
+            cat ~/.ssh/rpi.pub
+        fi
+    fi
+}
+
 function pubkey() {
     if [ -f ~/.ssh/id_rsa.pub ]; then
         if which pbcopy &> /dev/null; then

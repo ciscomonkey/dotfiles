@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/rmullins/dev/HCS-IB'
-let g:netrw_dirhist_2='/Users/rmullins/dev/HCS-IB/ccclib'
-let g:netrw_dirhist_3='/Users/rmullins/dev/HCS-IB'
-let g:netrw_dirhist_4='/Users/rmullins/dev/ccclib'
-let g:netrw_dirhist_5='/Users/rmullins/dev/HCS-IB'
-let g:netrw_dirhist_6='/Users/rmullins/dev/HCS-IB/ccclib'
-let g:netrw_dirhist_7='/Users/rmullins/dev/HCS-IB/ccclib/examples'
-let g:netrw_dirhist_8='/Users/rmullins/dev/HCS-IB'
-let g:netrw_dirhist_9='/Users/rmullins/dev/auto-pilot/mullins'
+let g:netrw_dirhist_cnt =0
