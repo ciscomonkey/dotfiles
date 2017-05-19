@@ -14,6 +14,7 @@ function fixeuler() {
             cat $1.py >> $1_tmp.py
             rm $1.py
             mv $1_tmp.py $1.py
+            chmod +x $1.py
             echo "Done."
         else
             echo "Appears to already have stanza."
