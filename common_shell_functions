@@ -8,7 +8,7 @@ function fixeuler() {
     else 
         if [ -f $1.py ]; then
             line=$(head -n 1 $1.py)
-            if [[ "$line" =~ ^#* ]]; then
+            if [[ "$line" =~ ^#!* ]]; then
                 echo "Appears to already have stanza."
             else
                 echo "#!/usr/bin/env python3" > $1_tmp.py
