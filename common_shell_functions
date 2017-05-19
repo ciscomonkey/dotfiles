@@ -6,21 +6,26 @@ function fixeuler() {
     if [ $1 -eq 0 ]; then
         echo "fixeuler [number]"
     else 
-        line=$(head -n 1 $1.py)
-        if [ $line != "#!/usr/bin/env python3" ]; then
-            echo "#!/usr/bin/env python3" > $1_tmp.py
-            echo "# -*- coding: utf-8 -*-" >> $1_tmp.py
-            echo "" >> $1_tmp.py
-            cat $1.py >> $1_tmp.py
-            rm $1.py
-            mv $1_tmp.py $1.py
-            chmod +x $1.py
-            echo "Done."
-        else
-            echo "Appears to already have stanza."
+        if [ -f $1.py ]; then
+            line=$(head -n 1 $1.py)
+            if [[ "$line" =~ ^#* ]]; then
+                echo "Appears to already have stanza."
+            else
+                echo "#!/usr/bin/env python3" > $1_tmp.py
+                echo "# -*- coding: utf-8 -*-" >> $1_tmp.py
+                echo "" >> $1_tmp.py
+                cat $1.py >> $1_tmp.py
+                rm $1.py
+                mv $1_tmp.py $1.py
+                echo "Done."
+            fi
+            if [ ! -x $1.py ]; then
+                chmod +x $1.py
+            fi
         fi
     fi
 }
+
 function pubkey() {
     if [ -f ~/.ssh/id_rsa.pub ]; then
         if which pbcopy &> /dev/null; then
