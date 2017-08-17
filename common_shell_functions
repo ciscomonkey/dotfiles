@@ -161,12 +161,6 @@ function flocate() {
     zgrep $1 /tmp/flocate.db --color=auto
 }
 
-function dgcprompt() {
-    if [ -f ~/.bash_prompt2 ]; then
-        . ~/.bash_prompt2
-    fi
-}
-
 function docprompt() {
     if [ -f ~/.bash_prompt_doc ]; then
         . ~/.bash_prompt_doc
