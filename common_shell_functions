@@ -167,6 +167,12 @@ function dgcprompt() {
     fi
 }
 
+function docprompt() {
+    if [ -f ~/.bash_prompt_doc ]; then
+        . ~/.bash_prompt_doc
+    fi
+}
+
 function resetprompt() {
     . ~/.bash_prompt
 }
