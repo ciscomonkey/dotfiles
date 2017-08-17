@@ -14,6 +14,7 @@
     ~/.bash_profile: bash_profile
     ~/.bash_prompt: bash_prompt
     ~/.bash_prompt2: bash_prompt2
+    ~/.bash_prompt_doc: bash_prompt_doc
     ~/.git_prompt.sh: git_prompt.sh
     ~/.git-completion.bash: git-completion.bash
     ~/.dictionary.txt.gz: dictionary.txt.gz
