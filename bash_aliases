@@ -1,0 +1,5 @@
+alias exifinfo='exiftool -common'
+alias exifclean='exiftool -P -overwrite_original -all= '
+alias ls='ls -GFh'
+alias ll='ls -lGFh'
+alias python='python3'

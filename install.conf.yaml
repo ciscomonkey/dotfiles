@@ -9,6 +9,7 @@
     ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.dotfile_util: util
+    ~/.bash_aliases: bash_aliases
     ~/.bash_profile: bash_profile
     ~/.bash_prompt: bash_prompt
     ~/.bash_prompt_doc: bash_prompt_doc
