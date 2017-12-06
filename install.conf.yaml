@@ -2,9 +2,7 @@
     link:
       relink: true
 
-
 - clean: ['~']
-
 
 - link:
     ~/.dotfiles: ''
@@ -18,7 +16,9 @@
     ~/.git-completion.bash: git-completion.bash
     ~/.dictionary.txt.gz: dictionary.txt.gz
     ~/.common_shell_functions: common_shell_functions
-
+    ~/.gitconfig: gitconfig
+    ~/.gitignore: gitignore
+    ~/.gitattributes: gitattributes
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
