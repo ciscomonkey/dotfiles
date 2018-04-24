@@ -78,6 +78,8 @@
 			git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
 		fi \
 	}; f"
+	st = status
+	la = log --pretty=\"format:%C(auto)%h %ad | %s%d [%an]\" --graph --date=short
 
 [apply]
 
@@ -185,3 +187,10 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = Ryan Mullins

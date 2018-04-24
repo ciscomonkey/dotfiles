@@ -8,6 +8,7 @@
     ~/.dotfiles: ''
     ~/.vim: vim
     ~/.vimrc: vimrc
+    ~/.virtualwrapper: virtualwrapper
     ~/.dotfile_util: util
     ~/.bash_aliases: bash_aliases
     ~/.bash_profile: bash_profile

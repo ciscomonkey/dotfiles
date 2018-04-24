@@ -6,8 +6,8 @@ if [ -f ~/.bash_prompt ]; then
     . ~/.bash_prompt
 fi
 
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    . /usr/local/bin/virtualenvwrapper.sh
+if [ -f ~/.virtualwrapper ]; then
+    . ~/.virtualwrapper
 fi
 
 if [ -f ~/.bashrc ]; then
@@ -58,3 +58,5 @@ _complete_ssh_hosts ()
 
 complete -F _complete_ssh_hosts ssh
 complete -F _complete_ssh_hosts scp
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
