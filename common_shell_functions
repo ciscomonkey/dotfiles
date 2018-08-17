@@ -171,3 +171,9 @@ function resetprompt() {
     . ~/.bash_prompt
 }
 
+function blast_docker() {
+    # Delete all containters
+    docker rm $(docker ps -a -q)
+    $ Delete all images
+    docker rmi $(docker images -q)
+}
