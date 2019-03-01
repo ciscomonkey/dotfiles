@@ -194,3 +194,4 @@
 	smudge = git-lfs smudge -- %f
 [user]
 	name = Ryan Mullins
+	email = 

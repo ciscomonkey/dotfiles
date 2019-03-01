@@ -9,3 +9,4 @@ alias hangups='hangups --col-scheme solarized-dark --col-palette-colors 256 --co
 alias vaultauth='vault auth 3bbda1c1-d59c-5dbc-311f-a953ff3aa49d'
 alias vaultunseal='~/vault/unseal.sh'
 alias vaultstuff='vaultunseal && vaultauth'
+alias mysql-util='mysql -h 127.0.0.1 -u root -p'
