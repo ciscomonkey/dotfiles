@@ -177,3 +177,7 @@ function blast_docker() {
     $ Delete all images
     docker rmi $(docker images -q)
 }
+
+function vcopy() {
+    vault read -field=password "$1" | pbcopy
+}
