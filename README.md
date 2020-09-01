@@ -12,3 +12,5 @@ CHANGES:
 
 * Added virtualwrapper for all virtualenv stuff.
 * TODO: check on using autoenv or not.
+
+TODO: Add https://github.com/abertsch/Menlo-for-Powerline for vscode
