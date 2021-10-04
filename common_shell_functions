@@ -189,3 +189,7 @@ function getcert() {
     fi
     echo | openssl s_client -connect $HOST 2>/dev/null | openssl x509 -text
 }
+
+function topfiles() {
+    du -sh * | sort -rh | head -5
+}
