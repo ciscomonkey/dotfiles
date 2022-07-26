@@ -60,4 +60,4 @@ complete -F _complete_ssh_hosts ssh
 complete -F _complete_ssh_hosts scp
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:/usr/local/opt/mysql-client/bin:$PATH"
