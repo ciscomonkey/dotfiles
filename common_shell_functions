@@ -179,5 +179,6 @@ function blast_docker() {
 }
 
 function vcopy() {
-    vault read -field=password "secret/$1/$2" | pbcopy
+    #vault read -field=password "secret/$1/$2" | pbcopy
+    vault kv get -field=password "secret/$1/$2" | pbcopy
 }

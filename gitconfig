@@ -195,3 +195,5 @@
 [user]
 	name = Ryan Mullins
 	email = 
+[init]
+	defaultBranch = main
