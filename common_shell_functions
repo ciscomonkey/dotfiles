@@ -5,7 +5,7 @@
 function fixeuler() {
     if [ $1 -eq 0 ]; then
         echo "fixeuler [number]"
-    else 
+    else
         if [ -f $1.py ]; then
             line=$(head -n 1 $1.py)
             if [[ "$line" =~ ^#!* ]]; then
@@ -193,4 +193,8 @@ function getcert() {
 
 function topfiles() {
     du -sh * | sort -rh | head -5
+}
+
+function acpoet() {
+    source $(poetry env info --path)/bin/activate
 }
