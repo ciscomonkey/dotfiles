@@ -21,6 +21,7 @@
     ~/.gitconfig: gitconfig
     ~/.gitignore: gitignore
     ~/.gitattributes: gitattributes
-
+    ~/.zsh_functions: zsh_functions
+    ~/.zshrc: zshrc
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
