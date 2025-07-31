@@ -52,6 +52,18 @@ function pubkey() {
     fi
 }
 
+function awslogins() {
+    if [ -f ~/.dotfile_util/awslogins.py ]; then
+        if which python3 &> /dev/null; then
+            ~/.dotfile_util/awslogins.py "$@"
+        else
+            echo "Need python3 for awslogins"
+        fi
+    else
+        echo "Could not find ~/.dotfile_util/awslogins.py"
+    fi
+}
+
 function pwgen() {
     if [ -f ~/.dotfile_util/pwgen.py ]; then
         if which python &> /dev/null; then

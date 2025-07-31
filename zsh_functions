@@ -1,0 +1,48 @@
+function apply_org_config() {
+  # Define the directory where your repositories are located
+  local REPOS_DIR=~/dev
+
+  # Define the URL pattern to match (e.g., GitHub organization URL pattern)
+  local URL_PATTERN="github.com/cdwlabs"
+
+  # Define the path to the organization-specific config file
+  local ORG_CONFIG_PATH="~/.gitconfig-cdw"
+
+  # Loop through each repository
+  for repo in $(find "$REPOS_DIR" -type d -name .git); do
+    # Get the URL of the remote origin for the repository
+    local url=$(git -C "${repo%/.git}" config --get remote.origin.url)
+    
+    # Check if the URL matches the defined pattern
+    if [[ $url == *$URL_PATTERN* ]]; then
+      echo "Applying org config to $repo"
+      
+      # Add the include.path to the local config of the repository
+      git -C "${repo%/.git}" config --local include.path "$ORG_CONFIG_PATH"
+    fi
+  done
+}
+
+function awslogins() {
+    if [ -f ~/.dotfile_util/awslogins.py ]; then
+        if which python3 &> /dev/null; then
+            ~/.dotfile_util/awslogins.py "$@"
+        else
+            echo "Need python3 for awslogins"
+        fi
+    else
+        echo "Could not find ~/.dotfile_util/awslogins.py"
+    fi
+}
+
+function pwgen() {
+    if [ -f ~/.dotfile_util/pwgen.py ]; then
+        if which python &> /dev/null; then
+            ~/.dotfile_util/pwgen.py 4
+        else
+            echo "Need python for pwgen"
+        fi
+    else
+        echo "Could not find ~/.dotfile_util/pwgen.py"
+    fi
+}
